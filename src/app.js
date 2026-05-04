@@ -5,6 +5,7 @@ const app = express()
 
 app.use(express.json())
 
+// Create Product in DB
 app.post('/create-product', async (req, res) => {
     try {
 
@@ -38,6 +39,7 @@ app.post('/create-product', async (req, res) => {
     }
 })
 
+// Get all products from DB
 app.get('/get-all-products', async (req, res) => {
 
     let products = await ProductModel.find()
@@ -49,6 +51,7 @@ app.get('/get-all-products', async (req, res) => {
 
 })
 
+// Get product by id from DB
 app.get('/get-product-by-id/:id', async (req, res) => {
     let { id } = req.params
     console.log(id)
@@ -61,6 +64,7 @@ app.get('/get-product-by-id/:id', async (req, res) => {
     })
 })
 
+// Update product by id from DB
 app.put('/update-product-by-id/:id', async (req, res) => {
     try {
 
@@ -97,6 +101,7 @@ app.put('/update-product-by-id/:id', async (req, res) => {
     }
 })
 
+// Delete product by id from DB
 app.delete('/delete-product-by-id/:id', async (req, res) => {
     try {
 
